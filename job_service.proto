@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package JobService;
+
+message JobRequest {
+  string job_title = 1;
+}
+
+message JobResponse {
+  string job_description = 1;
+}
+
+service JobSearch {
+  rpc FindJob(JobRequest) returns (JobResponse);
+}
