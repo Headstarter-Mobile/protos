@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package job_board;
+
+message Company {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  string website = 4;
+  repeated string office_locations = 5;
+}
+
+message CompanyRequest {
+  int32 id = 1;
+}
+
+message CompanyResponse {
+  Company company = 1;
+}
+
+message CreateCompanyRequest {
+    Company company = 1;
+}
+
+message CreateCompanyResponse {
+    Company company = 1;
+}

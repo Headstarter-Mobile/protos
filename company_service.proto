@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package job_board;
+
+import "company.proto";
+
+service CompanyService {
+  rpc GetCompany(CompanyRequest) returns (CompanyResponse);
+  rpc CreateCompany(CreateCompanyRequest) returns (CreateCompanyResponse);
+}
