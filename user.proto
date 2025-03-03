@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package job_board;
+
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+  enum UserType {
+    CANDIDATE = 0;
+    RECRUITER = 1;
+    ADMIN = 2;
+  }
+  UserType type = 5;
+}
+
+message UserRequest {
+  int32 id = 1;
+}
+
+message UserResponse {
+  User user = 1;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message CreateUserResponse {
+    User user = 1;
+}

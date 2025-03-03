@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package job_board;
+
+import "position.proto";
+
+service PositionService {
+  rpc GetPosition(PositionRequest) returns (PositionResponse);
+  rpc CreatePosition(CreatePositionRequest) returns (CreatePositionResponse);
+  rpc GetPositionsByCompany(GetPositionsByCompanyRequest) returns (GetPositionsByCompanyResponse);
+}
