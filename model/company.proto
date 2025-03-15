@@ -1,6 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "JobPlatform.Protos";
+
+option csharp_namespace = "Headstarter.Protos";
+
 package company;
+
 message Company {
   int32 id = 1;
   string name = 2;
