@@ -1,0 +1,37 @@
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+package user;
+enum UserRole {
+  CANDIDATE = 0;
+  RECRUITER = 1;
+  ADMIN = 2;
+}
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string password = 4;
+  int32 companyId = 5;
+  UserRole type = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+}
+service/user.proto
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+package user;
+import "google/protobuf/empty.proto";
+import "model/user.proto";
+message UserId {
+  int32 id = 1;
+}
+message UserRequest {
+  User user = 1;
+}
+service UserService {
+  rpc GetUser(UserId) returns (User);
+  rpc GetAllUsers(google.protobuf.Empty) returns (stream User);
+  rpc CreateUser(UserRequest) returns (User);
+  rpc UpdateUser(UserRequest) returns (User);
+  rpc DeleteUser(UserId) returns (google.protobuf.Empty);
+}

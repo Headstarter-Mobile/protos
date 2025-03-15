@@ -1,0 +1,18 @@
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+package position;
+import "google/protobuf/empty.proto";
+import "model/position.proto";
+message PositionId {
+  int32 id = 1;
+}
+message PositionRequest {
+  Position position = 1;
+}
+service PositionService {
+  rpc GetPosition(PositionId) returns (Position);
+  rpc GetAllPositions(google.protobuf.Empty) returns (stream Position);
+  rpc CreatePosition(PositionRequest) returns (Position);
+  rpc UpdatePosition(PositionRequest) returns (Position);
+  rpc DeletePosition(PositionId) returns (google.protobuf.Empty);
+}
