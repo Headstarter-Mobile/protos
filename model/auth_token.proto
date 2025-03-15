@@ -1,6 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "JobPlatform.Protos";
+
+option csharp_namespace = "Headstarter.Protos";
+
 package auth_token;
+
 message AuthToken {
   string token = 1;
   int32 userId = 2;

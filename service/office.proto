@@ -1,14 +1,21 @@
 syntax = "proto3";
-option csharp_namespace = "JobPlatform.Protos";
+
+option csharp_namespace = "Headstarter.Protos";
+
 package office;
+
 import "google/protobuf/empty.proto";
+
 import "model/office.proto";
+
 message OfficeId {
   int32 id = 1;
 }
+
 message OfficeRequest {
   Office office = 1;
 }
+
 service OfficeService {
   rpc GetOffice(OfficeId) returns (Office);
   rpc GetAllOffices(google.protobuf.Empty) returns (stream Office);

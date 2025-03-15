@@ -1,11 +1,15 @@
 syntax = "proto3";
-option csharp_namespace = "JobPlatform.Protos";
+
+option csharp_namespace = "Headstarter.Protos";
+
 package position;
+
 enum PositionStatus {
   DRAFT = 0;
   OPEN = 1;
   EXPIRED = 2;
 }
+
 message Position {
   int32 id = 1;
   PositionStatus status = 2;
