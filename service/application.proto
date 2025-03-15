@@ -1,0 +1,41 @@
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+
+package application;
+
+import "model/application.proto";
+import "google/protobuf/empty.proto";
+
+service ApplicationService {
+  rpc GetApplication (GetApplicationRequest) returns (Application) {}
+  rpc GetAllApplications (GetAllApplicationsRequest) returns (stream Application) {}
+  rpc CreateApplication (CreateApplicationRequest) returns (Application) {}
+  rpc UpdateApplication (UpdateApplicationRequest) returns (Application) {}
+  rpc DeleteApplication (DeleteApplicationRequest) returns (google.protobuf.Empty) {}
+}
+
+message GetApplicationRequest {
+  int64 id = 1;
+}
+
+message GetAllApplicationsRequest {
+  int64 userId = 1;
+  int64 positionId = 2;
+  string status = 3;
+  string createdAtStart = 4;
+  string createdAtEnd = 5;
+  string updatedAtStart = 6;
+  string updatedAtEnd = 7;
+}
+
+message CreateApplicationRequest {
+  Application application = 1;
+}
+
+message UpdateApplicationRequest {
+  Application application = 1;
+}
+
+message DeleteApplicationRequest {
+  int64 id = 1;
+}

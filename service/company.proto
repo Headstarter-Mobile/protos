@@ -1,0 +1,18 @@
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+package company;
+import "google/protobuf/empty.proto";
+import "model/company.proto";
+message CompanyId {
+  int32 id = 1;
+}
+message CompanyRequest {
+  Company company = 1;
+}
+service CompanyService {
+  rpc GetCompany(CompanyId) returns (Company);
+  rpc GetAllCompanies(google.protobuf.Empty) returns (stream Company);
+  rpc CreateCompany(CompanyRequest) returns (Company);
+  rpc UpdateCompany(CompanyRequest) returns (Company);
+  rpc DeleteCompany(CompanyId) returns (google.protobuf.Empty);
+}

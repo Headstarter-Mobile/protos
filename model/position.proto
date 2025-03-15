@@ -1,0 +1,20 @@
+syntax = "proto3";
+option csharp_namespace = "JobPlatform.Protos";
+package position;
+enum PositionStatus {
+  DRAFT = 0;
+  OPEN = 1;
+  EXPIRED = 2;
+}
+message Position {
+  int32 id = 1;
+  PositionStatus status = 2;
+  string title = 3;
+  string description = 4;
+  int32 companyId = 5;
+  string externalApplicationLink = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+  string publishedAt = 9;
+  string expiresAt = 10;
+}
