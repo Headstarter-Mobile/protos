@@ -6,7 +6,7 @@ package company;
 
 import "google/protobuf/empty.proto";
 
-import "model/company.proto";
+import "model_company.proto";
 
 message CompanyId {
   int32 id = 1;

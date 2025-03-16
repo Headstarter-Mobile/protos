@@ -4,7 +4,8 @@ option csharp_namespace = "Headstarter.Protos";
 
 package auth_token;
 
-import "model/auth_token.proto";
+import "model_auth_token.proto";
+import "empty.proto";
 
 service AuthTokenService {
   rpc GenerateToken (GenerateTokenRequest) returns (AuthToken) {}
@@ -24,5 +25,3 @@ message VerifyTokenRequest {
 message InvalidateTokenRequest {
   string token = 1;
 }
-
-import "google/protobuf/empty.proto";
