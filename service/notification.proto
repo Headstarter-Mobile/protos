@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package notification;
+
+import "google/protobuf/empty.proto";
+
+import "model/notification.proto";
+
+message GetUnseenMessagesRequest {
+  int64 id = 1; // User ID
+}
+
+message MarkAsReadRequest {
+  int64 id = 1; // Notification ID
+}
+
+service NotificationService {
+  rpc GetUnseenMessages (GetUnseenMessagesRequest) returns (stream Notification) {}
+  rpc MarkAsRead (MarkAsReadRequest) returns (google.protobuf.Empty) {}
+}

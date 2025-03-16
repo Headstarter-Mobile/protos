@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package company;
+
+message Company {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  string logo = 4;
+  string website = 5;
+  string createdAt = 6;
+  string updatedAt = 7;
+}
