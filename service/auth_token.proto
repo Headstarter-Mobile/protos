@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "Headstarter.Protos";
+
+package auth_token;
+
+import "model/auth_token.proto";
+
+service AuthTokenService {
+  rpc GenerateToken (GenerateTokenRequest) returns (AuthToken) {}
+  rpc VerifyToken (VerifyTokenRequest) returns (AuthToken) {}
+  rpc InvalidateToken (InvalidateTokenRequest) returns (google.protobuf.Empty) {}
+}
+
+message GenerateTokenRequest {
+  int64 userId = 1;
+  int64 expirationPeriodDays = 2; // Expiration period in days
+}
+
+message VerifyTokenRequest {
+  string token = 1;
+}
+
+message InvalidateTokenRequest {
+  string token = 1;
+}
+
+import "google/protobuf/empty.proto";
