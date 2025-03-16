@@ -4,7 +4,7 @@ option csharp_namespace = "Headstarter.Protos";
 
 package application;
 
-import "model/application.proto";
+import "model_application.proto";
 import "google/protobuf/empty.proto";
 
 service ApplicationService {

@@ -6,7 +6,7 @@ package notification;
 
 import "google/protobuf/empty.proto";
 
-import "model/notification.proto";
+import "model_notification.proto";
 
 message GetUnseenMessagesRequest {
   int64 id = 1; // User ID

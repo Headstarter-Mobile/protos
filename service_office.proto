@@ -6,7 +6,7 @@ package office;
 
 import "google/protobuf/empty.proto";
 
-import "model/office.proto";
+import "model_office.proto";
 
 message OfficeId {
   int32 id = 1;
