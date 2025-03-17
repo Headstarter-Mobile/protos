@@ -1,24 +1,21 @@
 syntax = "proto3";
 
-option csharp_namespace = "JobPlatform.Protos";
+option csharp_namespace = "Headstarter.Protos";
 
 package user;
 
 import "google/protobuf/empty.proto";
 import "model_user.proto";
 
-message UserId {
-  int32 id = 1;
-}
-
-message UserRequest {
-  User user = 1;
+message UserUpdateRequest {
+  User oldData = 1;
+  User newData = 2;
 }
 
 service UserService {
-  rpc GetUser(UserId) returns (User);
+  rpc GetUser(User) returns (User);
   rpc GetAllUsers(google.protobuf.Empty) returns (stream User);
-  rpc CreateUser(UserRequest) returns (User);
-  rpc UpdateUser(UserRequest) returns (User);
-  rpc DeleteUser(UserId) returns (google.protobuf.Empty);
+  rpc CreateUser(User) returns (User);
+  rpc UpdateUser(UserUpdateRequest) returns (User);
+  rpc DeleteUser(User) returns (google.protobuf.Empty);
 }

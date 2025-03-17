@@ -8,18 +8,15 @@ import "google/protobuf/empty.proto";
 
 import "model_company.proto";
 
-message CompanyId {
-  int32 id = 1;
-}
-
 message CompanyRequest {
-  Company company = 1;
+  Company oldData = 1;
+  Company newData = 2;
 }
 
 service CompanyService {
-  rpc GetCompany(CompanyId) returns (Company);
+  rpc GetCompany(Company) returns (Company);
   rpc GetAllCompanies(google.protobuf.Empty) returns (stream Company);
-  rpc CreateCompany(CompanyRequest) returns (Company);
+  rpc CreateCompany(Company) returns (Company);
   rpc UpdateCompany(CompanyRequest) returns (Company);
-  rpc DeleteCompany(CompanyId) returns (google.protobuf.Empty);
+  rpc DeleteCompany(Company) returns (google.protobuf.Empty);
 }
