@@ -8,18 +8,15 @@ import "google/protobuf/empty.proto";
 
 import "model_position.proto";
 
-message PositionId {
-  int32 id = 1;
-}
-
-message PositionRequest {
-  Position position = 1;
+message PositionUpdateRequest {
+  Position oldData = 1;
+  Position newData = 2;
 }
 
 service PositionService {
-  rpc GetPosition(PositionId) returns (Position);
+  rpc GetPosition(Position) returns (Position);
   rpc GetAllPositions(google.protobuf.Empty) returns (stream Position);
-  rpc CreatePosition(PositionRequest) returns (Position);
-  rpc UpdatePosition(PositionRequest) returns (Position);
-  rpc DeletePosition(PositionId) returns (google.protobuf.Empty);
+  rpc CreatePosition(Position) returns (Position);
+  rpc UpdatePosition(PositionUpdateRequest) returns (Position);
+  rpc DeletePosition(Position) returns (google.protobuf.Empty);
 }

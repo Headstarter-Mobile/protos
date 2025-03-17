@@ -8,18 +8,15 @@ import "google/protobuf/empty.proto";
 
 import "model_office.proto";
 
-message OfficeId {
-  int32 id = 1;
-}
-
-message OfficeRequest {
-  Office office = 1;
+message OfficeUpdateRequest {
+  Office oldData = 1;
+  Office newData = 2;
 }
 
 service OfficeService {
-  rpc GetOffice(OfficeId) returns (Office);
+  rpc GetOffice(Office) returns (Office);
   rpc GetAllOffices(google.protobuf.Empty) returns (stream Office);
-  rpc CreateOffice(OfficeRequest) returns (Office);
-  rpc UpdateOffice(OfficeRequest) returns (Office);
-  rpc DeleteOffice(OfficeId) returns (google.protobuf.Empty);
+  rpc CreateOffice(Office) returns (Office);
+  rpc UpdateOffice(OfficeUpdateRequest) returns (Office);
+  rpc DeleteOffice(Office) returns (google.protobuf.Empty);
 }

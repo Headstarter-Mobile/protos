@@ -8,15 +8,11 @@ import "model_application.proto";
 import "google/protobuf/empty.proto";
 
 service ApplicationService {
-  rpc GetApplication (GetApplicationRequest) returns (Application) {}
+  rpc GetApplication (Application) returns (Application) {}
   rpc GetAllApplications (GetAllApplicationsRequest) returns (stream Application) {}
-  rpc CreateApplication (CreateApplicationRequest) returns (Application) {}
+  rpc CreateApplication (Application) returns (Application) {}
   rpc UpdateApplication (UpdateApplicationRequest) returns (Application) {}
-  rpc DeleteApplication (DeleteApplicationRequest) returns (google.protobuf.Empty) {}
-}
-
-message GetApplicationRequest {
-  int64 id = 1;
+  rpc DeleteApplication (Application) returns (google.protobuf.Empty) {}
 }
 
 message GetAllApplicationsRequest {
@@ -29,14 +25,11 @@ message GetAllApplicationsRequest {
   string updatedAtEnd = 7;
 }
 
-message CreateApplicationRequest {
-  Application application = 1;
-}
-
 message UpdateApplicationRequest {
-  Application application = 1;
+  Application oldData = 1;
+  Application newData = 2;
 }
 
 message DeleteApplicationRequest {
-  int64 id = 1;
+  Application application = 1;
 }
