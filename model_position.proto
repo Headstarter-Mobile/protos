@@ -2,12 +2,36 @@ syntax = "proto3";
 
 option csharp_namespace = "Headstarter.Protos";
 
+import "model_office.proto";
+
 package position;
 
 enum PositionStatus {
   DRAFT = 0;
   OPEN = 1;
   EXPIRED = 2;
+}
+
+enum PositionLevel {
+	Internship = 0;
+	EntryLevel = 1;
+	Associate = 2;
+	MidSeniorLevel = 3;
+	Director = 4;
+	Executive = 5;
+}
+
+message PositionYearsRequired
+{
+	int32 from = 1;
+	int32 to = 2;
+}
+
+enum PositionType
+{
+	Remote = 0;
+	OnSite = 1;
+	Hybrid = 2;
 }
 
 message Position {
@@ -21,4 +45,9 @@ message Position {
   string updatedAt = 8;
   string publishedAt = 9;
   string expiresAt = 10;
+  PositionLevel level = 11;
+  PositionYearsRequired yearsRequired = 12;
+  int32 hours = 13;
+  PositionType type = 14;
+  repeated office.Office offices = 15;
 }
