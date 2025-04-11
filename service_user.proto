@@ -6,13 +6,20 @@ package user;
 
 import "google/protobuf/empty.proto";
 import "model_user.proto";
+import "model_auth_token.proto";
 
 message UserUpdateRequest {
   User oldData = 1;
   User newData = 2;
 }
 
+message LoggedUserData {
+	User userData = 1;
+	auth_token.AuthToken token = 2;
+}
+
 service UserService {
+  rpc LoginUser(User) returns (LoggedUserData);
   rpc GetUser(User) returns (User);
   rpc GetAllUsers(google.protobuf.Empty) returns (stream User);
   rpc CreateUser(User) returns (User);
