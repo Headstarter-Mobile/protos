@@ -15,7 +15,7 @@ message OfficeUpdateRequest {
 
 service OfficeService {
   rpc GetOffice(Office) returns (Office);
-  rpc GetAllOffices(google.protobuf.Empty) returns (stream Office);
+  rpc GetAllOffices(Office) returns (stream Office);
   rpc CreateOffice(Office) returns (Office);
   rpc UpdateOffice(OfficeUpdateRequest) returns (Office);
   rpc DeleteOffice(Office) returns (google.protobuf.Empty);
