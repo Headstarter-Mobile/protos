@@ -7,9 +7,9 @@ import "model_office.proto";
 package position;
 
 enum PositionStatus {
-  DRAFT = 0;
-  OPEN = 1;
-  EXPIRED = 2;
+	DRAFT = 0;
+	OPEN = 1;
+	EXPIRED = 2;
 }
 
 enum PositionLevel {
@@ -23,8 +23,8 @@ enum PositionLevel {
 
 message PositionYearsRequired
 {
-	int32 from = 1;
-	int32 to = 2;
+	optional int32 from = 1;
+	optional int32 to = 2;
 }
 
 enum PositionType
@@ -36,7 +36,7 @@ enum PositionType
 
 message Position {
   int32 id = 1;
-  PositionStatus status = 2;
+  optional PositionStatus status = 2;
   string title = 3;
   string description = 4;
   int32 companyId = 5;
@@ -45,9 +45,9 @@ message Position {
   string updatedAt = 8;
   string publishedAt = 9;
   string expiresAt = 10;
-  PositionLevel level = 11;
+  optional PositionLevel level = 11;
   PositionYearsRequired yearsRequired = 12;
   int32 hours = 13;
-  PositionType type = 14;
+  optional PositionType type = 14;
   repeated office.Office offices = 15;
 }

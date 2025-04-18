@@ -21,7 +21,7 @@ message LoggedUserData {
 service UserService {
   rpc LoginUser(User) returns (LoggedUserData);
   rpc GetUser(User) returns (User);
-  rpc GetAllUsers(google.protobuf.Empty) returns (stream User);
+  rpc GetAllUsers(User) returns (stream User);
   rpc CreateUser(User) returns (User);
   rpc UpdateUser(UserUpdateRequest) returns (User);
   rpc DeleteUser(User) returns (google.protobuf.Empty);
